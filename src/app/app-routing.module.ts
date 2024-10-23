@@ -4,7 +4,6 @@ import { AdminGuard } from './admin/guards/admin.guard';
 import { UserGuard } from './customer/guards/customer.guard';
 import { HomePageComponent } from './shared/home/pages/home-page/home-page.component';
 
-
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
 
@@ -12,7 +11,7 @@ const routes: Routes = [
 
   {
     path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule)
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
 
   {
@@ -23,10 +22,11 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    loadChildren: () => import('./customer/customer.module').then( m => m.CustomerModule),
+    loadChildren: () =>
+      import('./customer/customer.module').then((m) => m.CustomerModule),
     canActivate: [UserGuard],
-
   },
+
 ];
 
 @NgModule({
