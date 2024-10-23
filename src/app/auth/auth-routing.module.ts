@@ -9,7 +9,8 @@ const routes: Routes = [
     path: '',
     component: AuthLayoutPageComponent,
     children: [
-        {path: 'login-registro', component:LoginRegisterPageComponent}
+        {path: 'login-registro', component:LoginRegisterPageComponent},
+        {path: '**', redirectTo: 'login-registro'}
     ],
   },
 ];

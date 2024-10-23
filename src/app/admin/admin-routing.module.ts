@@ -32,6 +32,10 @@ const routes: Routes = [
         component: EspecificacionListaPageComponent,
       },
       { path: 'perfil', component: PerfilAdminPageComponent },
+
+      {
+        path: '**', redirectTo: 'ver-computadora'
+      }
     ],
   },
 ];

@@ -26,6 +26,7 @@ const routes: Routes = [
       import('./customer/customer.module').then((m) => m.CustomerModule),
     canActivate: [UserGuard],
   },
+
 ];
 
 @NgModule({
