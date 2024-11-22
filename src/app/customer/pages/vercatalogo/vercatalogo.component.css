@@ -145,3 +145,17 @@
   font-size: 0.875rem;
   border-radius: 0.25rem;
 }
+.img-container {
+  width: 100%; /* El contenedor ocupa todo el ancho disponible */
+  height: 200px; /* Altura fija para todas las imágenes */
+  overflow: hidden; /* Oculta cualquier parte de la imagen que exceda el contenedor */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centra la imagen dentro del contenedor */
+}
+
+.img-container img {
+  width: 100%; /* Ajusta la imagen al ancho del contenedor */
+  height: 100%; /* Ajusta la imagen al alto del contenedor */
+  object-fit: contain; /* La imagen se adapta completamente al contenedor sin recortarse */
+}
