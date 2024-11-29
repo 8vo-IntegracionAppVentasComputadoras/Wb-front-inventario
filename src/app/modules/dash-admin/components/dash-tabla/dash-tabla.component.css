@@ -5,6 +5,12 @@
   margin-bottom: 10px; /* Añadir un poco de espacio debajo del botón */
 }
 
+/* Estilo para el botón "Generar Reporte" */
+.generate-report-btn {
+  margin-left: 10px; /* Añadir espacio entre los botones */
+  margin-bottom: 10px;
+}
+
 /* Estilo para el formulario de búsqueda */
 .search-bar {
   width: 50%;
@@ -85,10 +91,20 @@ mat-row:hover {
 .mat-paginator-navigation-last, .mat-paginator-navigation-first {
   display: inline-block;
 }
+
 mat-card-title {
   font-size: 24px;
   font-weight: bold;
   text-align: center;
   margin: 10px 0;
   color: #3f51b5;
+}
+
+/* Estilo para los botones (con flexbox) */
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px; /* Espacio entre los botones */
+  margin-bottom: 16px; /* Espacio debajo de los botones */
 }
