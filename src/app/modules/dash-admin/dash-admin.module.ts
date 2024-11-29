@@ -14,18 +14,24 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormularioProductoComponent } from './components/formulario-producto/formulario-producto.component';
 import { MatSelectModule } from '@angular/material/select';
 import { AgregarStockComponent } from './components/agregar-stock/agregar-stock.component';
 import { ReducirStockComponent } from './components/reducir-stock/reducir-stock.component';
+import { ListaUsuariosComponent } from './components-gestionUsuarios/lista-usuarios/lista-usuarios.component';
+import { FormatIdPipe } from 'src/app/pipes/FormatIdPipe';
+import { EditarUsuarioComponent } from './components-gestionUsuarios/editar-usuario/editar-usuario.component';
 
 @NgModule({
   declarations: [
     DashTablaComponent,
     FormularioProductoComponent,
     AgregarStockComponent,
-    ReducirStockComponent
+    ReducirStockComponent,
+    ListaUsuariosComponent,
+    FormatIdPipe,
+    EditarUsuarioComponent,
   ],
   imports: [
     CommonModule,
@@ -43,7 +49,8 @@ import { ReducirStockComponent } from './components/reducir-stock/reducir-stock.
     ReactiveFormsModule,
     MatSelectModule,
 
-    GlobalModule
+    GlobalModule,
+    FormsModule
   ]
 })
 export class DashAdminModule { }

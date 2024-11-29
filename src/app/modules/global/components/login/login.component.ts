@@ -49,26 +49,20 @@ export class LoginComponent {
     }
 
     const { username: correo, password } = this.loginForm.value;
-
     this.authService.login(correo, password).subscribe(
       (response) => {
-        // Verificar si se recibe el token
         if (response.token) {
-          // Mostrar el token en consola para verificar que es correcto
           console.log('Token recibido:', response.token);
-
-          // Almacenar el token en localStorage (puedes también usar sessionStorage)
           localStorage.setItem('token', response.token);
 
           Swal.fire('Éxito', 'Sesión iniciada correctamente.', 'success');
-
-
           this.authService.getRole().subscribe((role) => {
             if (role === 'USER') {
-              this.router.navigate(['dash-admin']);
+              this.router.navigate(['ds']); // Redirige a la página del usuario
             } else if (role === 'ADMIN') {
-
-              this.router.navigate(['/admin/dashboard']);
+              this.router.navigate(['dash-admin']); // Redirige a la página del admin
+            } else if (role === 'GESTION_USUARIO') {
+              this.router.navigate(['dash-admin/gestion-usuarios']); // Redirige a la página de gestión de usuarios
             } else {
               Swal.fire('Error', 'Rol no autorizado.', 'error');
             }

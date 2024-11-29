@@ -11,6 +11,9 @@ import { Transaccion, TransaccionService } from 'src/app/services/transaccion';
 import { AgregarStockComponent } from '../agregar-stock/agregar-stock.component';
 import { ReducirStockComponent } from '../reducir-stock/reducir-stock.component';
 import { Router } from '@angular/router';
+import { ReporteService } from 'src/app/services/ReporteService';
+
+
 
 @Component({
   selector: 'app-dash-tabla',
@@ -40,6 +43,7 @@ export class DashTablaComponent implements OnInit {
     private fb: FormBuilder,
     private transaccionService: TransaccionService,
     private router: Router,
+    private reporteService: ReporteService,
   ) {}
 
   ngOnInit() {
@@ -236,7 +240,25 @@ export class DashTablaComponent implements OnInit {
   }
 
   verDetallesProducto(productoId: number) {
-    this.router.navigate([`/info-producto`, productoId]); 
+    this.router.navigate([`/info-producto`, productoId]);
+  }
+  generarReporte() {
+    this.reporteService.descargarReporteProductos().subscribe(
+      (response: Blob) => {
+        // Crear un enlace temporal para descargar el archivo PDF
+        const blob = new Blob([response], { type: 'application/pdf' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'reporte_productos.pdf'; // Nombre del archivo a descargar
+        a.click();
+        window.URL.revokeObjectURL(url); // Liberar el objeto URL después de la descarga
+      },
+      (error) => {
+        console.error('Error al generar el reporte:', error);
+        Swal.fire('Error', 'Hubo un error al generar el reporte.', 'error');
+      }
+    );
   }
 
 

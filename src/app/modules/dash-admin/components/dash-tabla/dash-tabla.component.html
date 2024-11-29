@@ -9,16 +9,25 @@
       <input matInput (keyup)="applyFilter($event)" placeholder="Ingrese el nombre del producto">
     </mat-form-field>
 
+    <!-- Contenedor para los botones -->
+    <div class="button-container">
+      <!-- Botón para agregar un producto -->
+      <button mat-raised-button color="primary" class="add-product-btn" (click)="abrirFormularioProducto()">
+        <mat-icon>add</mat-icon> Agregar Producto
+      </button>
 
-    <button mat-raised-button color="primary" class="add-product-btn" (click)="abrirFormularioProducto()">
-      <mat-icon>add</mat-icon> Agregar Producto
-    </button>
+      <!-- Botón para generar reporte -->
+      <button mat-raised-button color="accent" class="generate-report-btn" (click)="generarReporte()">
+        <mat-icon>assessment</mat-icon> Generar Reporte
+      </button>
+
+    </div>
 
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
       <!-- Columna ID Formateado -->
       <ng-container matColumnDef="formattedId">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID Formateado </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID</th>
         <td mat-cell *matCellDef="let producto"> {{producto.formattedId}} </td>
       </ng-container>
 
